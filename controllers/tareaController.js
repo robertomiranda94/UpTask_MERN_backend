@@ -75,7 +75,7 @@ const actualizarTarea = async (req, res) => {
 const eliminarTarea = async (req, res) => {
     const { id } = req.params;
 
-    const tarea = await Tarea.findById(id);
+    const tarea = await Tarea.findById(id).populate("proyecto");
 
     if (!tarea) {
         const error = new Error("Tarea no encontrada");
